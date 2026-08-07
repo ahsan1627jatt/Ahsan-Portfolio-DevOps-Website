@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: portfolio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dev
+  template:
+    metadata:
+      name: portfolio-pod
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: ahsan-portfolio
+          image: ahsan3243/ahsan-portfolio
+          ports:
+            - containerPort: 80
